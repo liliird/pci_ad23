@@ -23,7 +23,7 @@ def printInfoClima(info):
     print("Promedio de temperatura:",(info.get("temp_min")+info.get("temp_max"))/2, "°C")
     
 def printViento(info):
-    print("Viento: ",info.get("speed"))
+    print("Viento: ",info.get("speed"), "km/h")
     
 ciudad=input("Introduce la ciudad para conocer su información meteorológica: ")
 url="http://api.openweathermap.org/data/2.5/weather?q="+ciudad+"&mode=json&units=metric&lang=es&appid=9fc4e2b08423fd7dbcf8a27d0e755035"
