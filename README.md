@@ -12,14 +12,12 @@ Este programa es un buscador de condiciones climáticas en un lugar determinado 
 
 
 Algoritmo:
-1. Importar librerías
-2. Crear una clase para el frame de la Interfaz Gráfica
-3. Crear constructor de la clase
-4. Crear renglones, columnas y paneles para la Interfaz Gráfica
-5. Crear la función que extraerá información de la API
-6. Crear función que muestre los datos de la API
-7. Crear función que permita mostrar imágenes
-8. Crear el diseño de la interfaz mediante imagenes, color, tipo de fuente y ubicación de los frames
-9. Crear un menú principal
-10. Pedir al usuario el lugar del que consultará la información meteorológica
-11. Mostrar los datos obtenidos de la API respecto al lugar que el usuario indicó
+1. Obtener la API de donde se recabarán los datos, en este caso, serán desde OpenWeatherMap.
+2. Importar las librería request para poder extraer información de la API y datetime para poder manejar adecuadamente las undiades de tiempo
+3. Crear la función que accede a la información de la API y, mediante una estructura de control informa si hay algún error.
+4. Crear función para extraer la longitud y latitud del lugar indicado por el usuario.
+5. Crear función que extrae los datos del clima: temperatura en Celsius, temperatura en Fahrenheit (en esta parte se utilizarán operadores matemáticos para realizar la conversión), temperatura en Kelvins (en esta parte igual se utilizarán operadores matemáticos para realizar la conversión), humedad, temperatura máxima, mínima y su promedio.
+6. Crear la función que extraerá la velocidad del viento.
+7. Mediante una estructura de control y, asegurándose que no hay algún error en la API, se imprimen los datos de la ciudad indicada por el usuario.
+
+Desde la vista del usuario, el programa pregunta la ciudad de la cual se requiere conocer los datos meteorológicos, el usuario teclea el nombre de la ciudad y, el programa devuelve el nombre de la ciudad, la longitud, latitud, Temperatura en grados Celsius, Temperatura en grados Fahrenheit, Temperatura en grados Kelvin, Humedad, Temperatura Mínima, Temperatura Máxima, Promedio de temperatura y Viento obtenidos desde una API.
