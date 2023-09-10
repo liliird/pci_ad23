@@ -17,10 +17,10 @@ def printInfoClima(info):
     print("Temperatura en grados Celsius:",info.get("temp"), "°C")
     print("Temperatura en grados Fahrenheit:",info.get("temp")*(9/5)+32, "°F")
     print("Temperatura en grados Kelvin:",info.get("temp")+273.15, "K")
-    print("Humedad:",info.get("humidity")) 
-    print("Temperatura Mínima:",info.get("temp_min"))
-    print("Temperatura Máxima:",info.get("temp_max"))
-    print("Promedio de temperatura:",(info.get("temp_min")+info.get("temp_max"))/2)
+    print("Humedad:",info.get("humidity"), "%") 
+    print("Temperatura Mínima:",info.get("temp_min"), "°C")
+    print("Temperatura Máxima:",info.get("temp_max"), "°C")
+    print("Promedio de temperatura:",(info.get("temp_min")+info.get("temp_max"))/2, "°C")
     
 def printViento(info):
     print("Viento: ",info.get("speed"))
