@@ -13,7 +13,7 @@ Este programa es un buscador de condiciones climáticas en un lugar determinado 
 
 Algoritmo:
 1. Obtener la API de donde se recabarán los datos, en este caso, serán desde OpenWeatherMap.
-2. Importar las librerías request para poder extraer información de la API y datetime para poder manejar adecuadamente las undiades de tiempo, mediante import <nombre_libreria>
+2. Importar las librerías request para poder extraer información de la API y datetime para poder manejar adecuadamente las undiades de tiempo, mediante import <nombre_libreria> (Debieron ser instaladas previamente desde el cmd con el comando pip install request)
 3. Crear la función que accede a la información de la API y, mediante una estructura de control informa si hay algún error.
 4. Crear función para extraer la longitud y latitud del lugar indicado por el usuario.
 5. Crear función que extrae los datos del clima: temperatura en Celsius, temperatura en Fahrenheit (en esta parte se utilizarán operadores matemáticos para realizar la conversión), temperatura en Kelvins (en esta parte igual se utilizarán operadores matemáticos para realizar la conversión), humedad, temperatura máxima, mínima y su promedio.
