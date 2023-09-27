@@ -2,6 +2,10 @@ import requests
 from datetime import datetime
 import datetime
 
+def menu():
+    print("1. Conocer los datos meteorologicos")
+    print("2. Salir")
+
 def getInfo(url):
     response=requests.get(url)
     if(response.status_code==200):
@@ -23,15 +27,26 @@ def printInfoClima(info):
     print("Promedio de temperatura:",(info.get("temp_min")+info.get("temp_max"))/2, "°C")
     
 def printViento(info):
-    print("Viento: ",info.get("speed"), "km/h")
+    print("Viento: ",info.get("speed"))
     
-ciudad=input("Introduce la ciudad para conocer su información meteorológica: ")
-url="http://api.openweathermap.org/data/2.5/weather?q="+ciudad+"&mode=json&units=metric&lang=es&appid=9fc4e2b08423fd7dbcf8a27d0e755035"
-response=getInfo(url)
-if (response!="Error"):
-    print("Ciudad:",response.get("name"))
-    printInfoCoordenadas(response.get("coord"))
-    printInfoClima(response.get("main"))
-    printViento(response.get("wind"))
-else:
-    print(response)
+
+def main(): 
+    continua=True
+    while continua:
+        menu()
+        opcion= int(input("Introduce una opcion: "))
+        if opcion==1:
+            ciudad=input("Introduce la ciudad para conocer su información meteorológica: ")
+            url="http://api.openweathermap.org/data/2.5/weather?q="+ciudad+"&mode=json&units=metric&lang=es&appid=9fc4e2b08423fd7dbcf8a27d0e755035"
+            response=getInfo(url)
+            if (response!="Error"):
+                print("Ciudad:",response.get("name"))
+                printInfoCoordenadas(response.get("coord"))
+                printInfoClima(response.get("main"))
+                printViento(response.get("wind"))
+            else:
+                print(response)
+        elif opcion == 2:
+            print("Adios")
+            continua=False
+main()
