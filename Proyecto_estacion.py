@@ -4,7 +4,8 @@ from datetime import datetime
 def menu():
     print("1. Conocer los datos meteorológicos")
     print("2. Mostrar ciudades consultadas")
-    print("3. Salir")
+    print("3. Mostrar detalles de una ciudad consultada")
+    print("4. Salir")
 
 def getInfo(url):
     response = requests.get(url)
@@ -30,7 +31,8 @@ def printViento(info):
     print("Viento: ", info.get("speed"))
 
 def main():
-    ciudades_consultadas = []
+    ciudades_consultadas = []  # Lista de ciudades consultadas
+
     continua = True
     while continua:
         menu()
@@ -44,15 +46,32 @@ def main():
                 printInfoCoordenadas(response.get("coord"))
                 printInfoClima(response.get("main"))
                 printViento(response.get("wind"))
-                #información de la ciudad consultada en la lista
-                ciudades_consultadas.append(response)
+                # Información de la ciudad consultada en la lista como un diccionario
+                ciudad_info = {
+                    "name": response.get("name"),
+                    "coord": response.get("coord"),
+                    "main": response.get("main"),
+                    "wind": response.get("wind")
+                }
+                ciudades_consultadas.append(ciudad_info)
             else:
                 print(response)
         elif opcion == 2:
             print("Ciudades consultadas:")
-            for ciudad in ciudades_consultadas:
-                print(ciudad.get("name"))
+            for i, ciudad in enumerate(ciudades_consultadas):
+                print(f"{i + 1}. {ciudad['name']}")
         elif opcion == 3:
+            indice = int(input("Introduce el número de la ciudad para ver sus detalles: ")) - 1
+            if 0 <= indice < len(ciudades_consultadas):
+                cd_selec= ciudades_consultadas[indice]
+                print("Detalles de la ciudad seleccionada:")
+                print("Ciudad:", cd_selec["name"])
+                printInfoCoordenadas(cd_selec["coord"])
+                printInfoClima(cd_selec["main"])
+                printViento(cd_selec["wind"])
+            else:
+                print("Índice de ciudad no válido.")
+        elif opcion == 4:
             print("Adiós")
             continua = False
 
